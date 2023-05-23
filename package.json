@@ -1,0 +1,26 @@
+{
+  "name": "asbot",
+  "version": "1.0.0",
+  "description": "A simple discord bot for me and my friends",
+  "main": "bot.js",
+  "author": "chevalme arnaud <arnaud.chevalme@edu.univ-fcomte.fr>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "chalk": "^4",
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3",
+    "mariadb": "^3.1.1",
+    "parse-duration": "^1.0.3",
+    "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "start": "node bot.js&",
+    "dev": "nodemon bot.js",
+    "deploy": "node deploy-commands.js",
+    "delete": "node delete-commands.js"
+  }
+}
