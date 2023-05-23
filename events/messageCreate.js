@@ -7,9 +7,13 @@ module.exports = {
     if (newMessage.channel.type === "DM") return;
     if (newMessage.content.toUpperCase().endsWith("QUOI ?")) {
       const feur = await newMessage.reply("Feur !");
+      await feur.react("🇱");
+      await feur.react("🇲");
+      await feur.react("🇦");
+      await feur.react("🇴");
       setTimeout(() => {
         feur.delete();
-      }, 5000);
+      }, 10000);
     }
   },
 };
