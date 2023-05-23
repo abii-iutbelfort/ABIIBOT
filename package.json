@@ -20,7 +20,6 @@
   "scripts": {
     "start": "node bot.js&",
     "dev": "nodemon bot.js",
-    "deploy": "node deploy-commands.js",
-    "delete": "node delete-commands.js"
+    "commands": "node deploy-commands.js"
   }
 }

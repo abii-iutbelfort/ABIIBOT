@@ -2,7 +2,24 @@ const { REST, Routes } = require("discord.js");
 require("dotenv").config();
 
 const logger = require("./helpers/Logger");
-const commands = require("./helpers/get-commands");
+
+let commands;
+
+switch (process.argv[2]) {
+  case "deploy":
+    commands = require("./helpers/get-commands");
+    break;
+
+  case "remove":
+    commands = [];
+    break;
+
+  default:
+    logger.error(
+      `Invalid action provided : '${process.argv[2]}'. Please provide one of the following actions: deploy, remove`
+    );
+    process.exit(1);
+}
 
 const clientId = process.env.ABIIBOT_CLIENT_ID;
 const token = process.env.ABIIBOT_TOKEN;
@@ -16,7 +33,7 @@ const rest = new REST().setToken(token);
 
     let data;
 
-    switch (process.argv[2]) {
+    switch (process.argv[3]) {
       case "global":
         data = await rest.put(Routes.applicationCommands(clientId), {
           body: commands,
@@ -44,7 +61,7 @@ const rest = new REST().setToken(token);
 
       default:
         logger.error(
-          "Invalid scope provided. Please provide one of the following scopes: global, guilds"
+          `Invalid scope provided : '${process.argv[3]}'. Please provide one of the following scopes: global, guilds`
         );
         process.exit(1);
     }
