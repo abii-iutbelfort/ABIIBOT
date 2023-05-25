@@ -25,7 +25,7 @@ logger.log("Syncing database...");
 const bdd = require("./bdd/models");
 
 bdd.sequelize
-  .sync({ logging: false })
+  .sync({ logging: false, force: true })
   .then(async () => {
     client.bdd = require("./bdd/controllers");
     logger.success("Database connected!");
