@@ -6,7 +6,7 @@ module.exports = {
   PASSWORD: process.env.ABIIBOT_BDD_PASSWD,
   options: {
     host: process.env.ABIIBOT_BDD_HOST,
-    dialect: "mariadb",
+    dialect: "postgresql",
     logging: false,
     define: {
       timestamps: false,
